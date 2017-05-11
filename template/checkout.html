@@ -1,0 +1,93 @@
+<div class="row" ng-show="ngCart.getTotalItems() > 0" ng-form="orderForm">
+<div class="col-sm-6 col-md-6 contact-info">
+    <p>
+        *lorem ipsum xxxxx
+        *lorem ipsum xxxxx
+        *lorem ipsum xxxxx
+    </p>
+
+    <p class="text-center"><strong>Detalii facturare si livrare</strong></p>
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+                <label class="control-label">Nume/Denumire firma</label>
+                <input name="NAME" placeholder="Nume/Denumire firma" class="form-control input-lg" type="text" ng-model="ngCart.$cart.invoice.name" ng-required="true">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+                <label class="control-label">CNP/CUI</label>
+                <input name="CNP" placeholder="CNP/CUI" class="form-control input-lg" type="text" ng-model="ngCart.$cart.invoice.cnp">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label" >E-mail</label>
+        <input name="email" placeholder="E-mail" class="form-control input-lg" type="email" ng-model="ngCart.$cart.invoice.email">
+    </div>
+    <div class="form-group">
+        <label class="control-label" >Telefon</label>
+        <input name="phone" placeholder="Telefon" class="form-control input-lg" type="phone" ng-model="ngCart.$cart.invoice.phone" ng-required="true">
+    </div>
+</div>
+<div class="col-sm-6 col-md-6">
+    <div class="row">
+        <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+                <label class="control-label">Judet</label>
+                <input name="county" placeholder="Judet" class="form-control" type="text" ng-model="ngCart.$cart.invoice.county"  ng-required="true">
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6">
+            <div class="form-group">
+                <label class="control-label">Localitate</label>
+                <input name="city" placeholder="Localitate" class="form-control" type="text" ng-model="ngCart.$cart.invoice.city" ng-required="true">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 col-md-8">
+            <div class="form-group">
+                <label class="control-label">Strada</label>
+                <input name="street" placeholder="Strada" class="form-control" type="text" ng-model="ngCart.$cart.invoice.street" required>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group">
+                <label class="control-label">Nr.</label>
+                <input name="number" placeholder="Nr." class="form-control" type="text" ng-model="ngCart.$cart.invoice.number" ng-required="true">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group">
+                <label class="control-label">Bloc</label>
+                <input name="BLOC" placeholder="Bloc" class="form-control" type="text" ng-model="ngCart.$cart.invoice.building">
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group">
+                <label class="control-label">Sc.</label>
+                <input name="SCARA" placeholder="Sc." class="form-control" type="text" ng-model="ngCart.$cart.invoice.entrance">
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+            <div class="form-group">
+                <label class="control-label">Ap.</label>
+                <input name="apartament" placeholder="Ap." class="form-control" type="text" ng-model="ngCart.$cart.invoice.flat">
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label">Nota</label>
+        <textarea name="note" placeholder="Nota" class="form-control" type="text" ng-model="ngCart.$cart.invoice.note" rows="3"></textarea>
+    </div>
+
+    <p>
+        <button name="submit" type="button"  ng-disabled="orderForm.$invalid" class="btn btn-store btn-block" ng-click="checkout();">Trimite comanda</button>
+    </p>
+</div>
+
+</div>
+

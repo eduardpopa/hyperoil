@@ -46,6 +46,6 @@ export default function seedDatabaseIfNeeded() {
     .then(() => console.log('finished populating things'))
     .catch(err => console.log('error populating things', err));
 
-    });
+    }
   }
-}
+

@@ -1,0 +1,17 @@
+<div ng-hide="attrs.id">
+    <a class="btn btn-lg btn-primary" ng-disabled="true" ng-transclude></a>
+
+</div>
+<div ng-show="attrs.id">
+    <div ng-show="!inCart()">
+
+        <a class="btn btn-sm btn-store btn-primary"
+           ng-click="ngCart.addItem(id, url, name, price, 1, data)"
+           ng-transclude></a>
+    </div>
+    <mark  ng-show="inCart()">
+        Produsul a fost adaugat in cosul de cumparaturi.
+        <i class="glyphicon glyphicon-eye-open"></i>
+    </mark>
+
+</div>

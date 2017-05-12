@@ -1,0 +1,68 @@
+
+<div class="alert alert-warning" role="alert" ng-show="ngCart.getTotalItems() === 0">
+    Cosul este gol.
+</div>
+
+<div class="table-responsive col-lg-12" ng-show="ngCart.getTotalItems() > 0">
+
+    <table class="table table-striped ngCart cart">
+<thead>
+<tr>
+
+    <td>Denumire produs</td>
+    <td>Cantitate</td>
+    <td>Pret unitar</td>
+    <td>Pret</td>
+    <td></td>
+</tr>
+</thead>
+        <tfoot>
+        <tr ng-show="ngCart.getTax()">
+            <td></td>
+            <td></td>
+
+            <td>TVA ({{ ngCart.getTaxRate() }}%):</td>
+            <td>{{ ngCart.getTax() }}  Lei</td>
+            <td></td>
+        </tr>
+        <tr ng-show="ngCart.getShipping()">
+
+            <td></td>
+            <td></td>
+            <td>Transport:</td>
+            <td>{{ ngCart.getShipping()  }}  Lei</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+
+            <td><b>Total:</b></td>
+            <td><b>{{ ngCart.totalCost()  }}  Lei</b></td>
+            <td></td>
+        </tr>
+        </tfoot>
+        <tbody>
+        <tr ng-repeat="item in ngCart.getCart().items track by $index">
+
+
+            <td><a ng-click="ngCart.openItem(item.getUrl())">{{ item.getName() }}</a></td>
+            <td><span class="glyphicon glyphicon-minus-sign" ng-class="{'disabled':item.getQuantity()==1}"
+                      ng-click="item.setQuantity(-1, true)"></span>&nbsp;&nbsp;
+                {{ item.getQuantity() | number }}&nbsp;&nbsp;
+                <span class="glyphicon glyphicon-plus-sign" ng-click="item.setQuantity(1, true)"></span></td>
+            <td>{{ item.getPrice() }} Lei</td>
+            <td>{{ item.getTotal()  }} Lei</td>
+            <td><span ng-click="ngCart.removeItemById(item.getId())" class="glyphicon glyphicon-trash"></span></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<style>
+    .ngCart.cart span[ng-click] {
+        cursor: pointer;
+    }
+    .ngCart.cart .glyphicon.disabled {
+        color:#aaa;
+    }
+</style>
